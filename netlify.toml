@@ -4,9 +4,6 @@ command = "pnpm build"
 publish = "apps/web/dist/evena/browser"
 functions = "apps/backend/dist"
 
-[functions]
-node_version = "26.5.0"
-
 [[redirects]]
 from = "/*"
 to = "/index.html"
