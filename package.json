@@ -1,0 +1,25 @@
+{
+  "name": "evena",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r --parallel run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.23.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@11.23.0",
+  "type": "module",
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}
