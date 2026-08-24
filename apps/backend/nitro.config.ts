@@ -4,6 +4,7 @@ export default defineConfig({
   serverDir: './server',
   compatibilityDate: '2026-08-24',
   preset: 'netlify',
+  apiBaseURL: '/api',
   logLevel: 3,
   devServer: {
     watch: ['.env', './assets/drizzle'],
