@@ -28,5 +28,5 @@ command = "pnpm run build --configuration staging"
 NODE_VERSION = "26.5.0"
 PNPM_FLAGS = "--shamefully-hoist"
 
-[[plugins]]
-package = "@netlify/angular-runtime"
+# [[plugins]]
+# package = "@netlify/angular-runtime"

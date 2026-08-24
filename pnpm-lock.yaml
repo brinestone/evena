@@ -210,10 +210,6 @@ importers:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
-    devDependencies:
-      '@netlify/angular-runtime':
-        specifier: ^4.0.0
-        version: 4.0.0
 
   apps/backend:
     dependencies:

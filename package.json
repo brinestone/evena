@@ -21,8 +21,5 @@
   "type": "module",
   "dependencies": {
     "zod": "^4.4.3"
-  },
-  "devDependencies": {
-    "@netlify/angular-runtime": "^4.0.0"
   }
 }
