@@ -2,6 +2,8 @@ import { defineConfig } from 'nitro';
 
 export default defineConfig({
   serverDir: './server',
+  compatibilityDate: '2026-08-24',
+  preset: 'netlify',
   logLevel: 3,
   devServer: {
     watch: ['.env', './assets/drizzle'],
@@ -10,6 +12,9 @@ export default defineConfig({
   runtimeConfig: {
     databaseUrl: '',
     betterAuthSecret: '',
+    googleClientSecret: '',
+    googleClientId: '',
+    baseUrl: 'https://smattend.netlify.app',
   },
   routeRules: {
     '/api/**': {

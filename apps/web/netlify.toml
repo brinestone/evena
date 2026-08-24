@@ -1,0 +1,17 @@
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[build]
+command = "pnpm run build"
+publish = "dist/evena/browser"
+
+[context.production]
+command = "pnpm build --configuration production"
+
+[context.preview-deploy]
+command = "pnpm run build --configuration staging"
+
+[build.environment]
+NODE_VERSION = "26.5.0"

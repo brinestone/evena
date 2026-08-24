@@ -1,5 +1,5 @@
 {
-  "name": "evena",
+  "name": "@evena/web",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -28,6 +28,7 @@
     "@angular/build": "^22.0.7",
     "@angular/cli": "^22.0.7",
     "@angular/compiler-cli": "^22.0.0",
+    "@netlify/angular-runtime": "^4.0.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
     "prettier": "^3.8.1",
