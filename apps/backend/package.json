@@ -1,21 +1,30 @@
 {
-  "name": "nitro-starter",
+  "name": "@evena/api",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "preview": "nitro preview"
+    "preview": "nitro preview",
+    "migrate.local": "pnpm drizzle-kit generate && pnpm drizzle-kit migrate",
+    "studio": "pnpm drizzle-kit studio"
   },
   "imports": {
     "#*": "./*"
   },
   "devDependencies": {
     "@types/node": "latest",
-    "drizzle-kit": "^0.31.10",
+    "@types/pg": "^8.23.1",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "1.0.0-rc.4",
     "nitro": "latest",
     "typescript": "latest"
   },
   "dependencies": {
-    "drizzle-orm": "^0.45.2"
+    "@better-auth/drizzle-adapter": "^1.7.1",
+    "better-auth": "^1.7.1",
+    "drizzle-orm": "1.0.0-rc.4",
+    "pg": "^8.23.0",
+    "ulid": "^3.0.2"
   }
 }
