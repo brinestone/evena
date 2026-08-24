@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
-    "build": "pnpm -r --parallel run build"
+    "build": "pnpm -r --parallel run build",
+    "postbuild": "pnpm copy-assets",
+    "copy-assets": "copyfiles -E \"./apps/web/dist/*\" \"./apps/backend/.netlify/*\" out"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +23,8 @@
   "type": "module",
   "dependencies": {
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
