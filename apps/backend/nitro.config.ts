@@ -3,7 +3,7 @@ import { defineConfig } from 'nitro';
 export default defineConfig({
   serverDir: './server',
   compatibilityDate: '2026-08-24',
-  preset: 'netlify',
+  preset: 'render_com',
   apiBaseURL: '/api',
   logLevel: 3,
   devServer: {

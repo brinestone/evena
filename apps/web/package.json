@@ -6,6 +6,7 @@
     "dev": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "sdk:update": "pnpm orval",
     "test": "ng test",
     "serve:ssr:evena": "node dist/evena/server/server.mjs"
   },
@@ -20,6 +21,7 @@
     "@angular/platform-server": "^22.0.0",
     "@angular/router": "^22.0.0",
     "@angular/ssr": "^22.0.7",
+    "better-auth": "^1.7.1",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
@@ -31,6 +33,7 @@
     "@netlify/angular-runtime": "^4.0.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "orval": "^8.26.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2"
   }

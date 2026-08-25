@@ -1,0 +1,3 @@
+DROP VIEW "vw_event_lookup";--> statement-breakpoint
+ALTER TABLE "events" RENAME COLUMN "addage_limit" TO "company_limit";--> statement-breakpoint
+CREATE VIEW "vw_event_lookup" AS (select "e"."id", "e"."name", "e"."description", "e"."updated_at", "e"."started_at", "e"."attendee_limit", count("ca"."id") as "attendances", count("pr"."id") as "pending_reservations", CASE WHEN "e"."attendee_limit" IS NOT NULL THEN GREATEST(count("ca"."id") - "e"."attendee_limit", 0) ELSE 0 END as "overflow" from "events" "e" left join "event_attendances" "ca" on "ca"."event" = "e"."id" left join "event_reservations" "pr" on (("pr"."event" = "e"."id") and (("pr"."cancelled_at" is null)) and (("pr"."attended_at" is null))) group by "e"."id" order by "e"."updated_at" desc);
