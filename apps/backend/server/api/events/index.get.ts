@@ -3,6 +3,27 @@ import { getValidatedQuery } from 'nitro/h3';
 import { defineHandler, defineRouteMeta } from 'nitro';
 import z from 'zod/v4';
 import { eventLookup, Events, useDatabase } from '~/utils/db';
+import { ulid } from 'ulid';
+
+const paramsSchema = z.object({
+  offset: z.string().trim().nullish().default(null),
+  batchSize: z.coerce.number().nullish().default(100),
+});
+
+export default defineHandler(async (event) => {
+  const db = useDatabase();
+  const { batchSize, offset } = await getValidatedQuery(event, paramsSchema);
+  const whereClauses = Array<SQL<unknown>>();
+
+  if (offset) whereClauses.push(gt(eventLookup.id, offset));
+
+  const events = await db
+    .select()
+    .from(eventLookup)
+    .where(and(eq(eventLookup.type, 'open'), ...whereClauses))
+    .limit(batchSize ?? 100);
+  return events;
+});
 
 defineRouteMeta({
   openAPI: {
@@ -82,24 +103,4 @@ defineRouteMeta({
       },
     },
   },
-});
-
-const paramsSchema = z.object({
-  offset: z.string().trim().nullish().default(null),
-  batchSize: z.coerce.number().nullish().default(100),
-});
-
-export default defineHandler(async (event) => {
-  const db = useDatabase();
-  const { batchSize, offset } = await getValidatedQuery(event, paramsSchema);
-  const whereClauses = Array<SQL<unknown>>();
-
-  if (offset) whereClauses.push(gt(eventLookup.id, offset));
-
-  const events = await db
-    .select()
-    .from(eventLookup)
-    .where(and(eq(eventLookup.type, 'open'), ...whereClauses))
-    .limit(batchSize ?? 100);
-  return events;
 });
