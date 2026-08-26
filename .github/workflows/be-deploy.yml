@@ -9,12 +9,12 @@ on:
   push:
     paths:
       - apps/backend/**/*.ts
+      - apps/backend/**/*.sql
     tags:
       - v*.*.*
-    branches:
-      - master
 
 jobs:
+  # TODO: Implement Database Migrations and data backup
   deploy_backend:
     name: Trigger Render Deployment
     runs-on: ubuntu-latest
