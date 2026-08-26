@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm -r --parallel run build",
-    "postbuild": "pnpm copy-assets",
-    "copy-assets": "copyfiles -E \"./apps/web/dist/*\" \"./apps/backend/.netlify/*\" out"
+    "build:fe": "pnpm --filter \"@evena/web\"... build"
   },
   "keywords": [],
   "author": "",
