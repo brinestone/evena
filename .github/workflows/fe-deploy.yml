@@ -1,0 +1,44 @@
+name: "Frontend Build"
+on:
+  pull_request:
+    paths:
+      - "apps/web/**/*.ts"
+    types:
+      - closed
+  workflow_dispatch:
+  push:
+    paths:
+      - "apps/web/**/*.ts"
+    tags:
+      - v*.*.*
+    branches:
+      - master
+
+jobs:
+  build_artifacts:
+    name: Build Artifacts
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_PERSONAL_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            pnpm-workspace.yaml
+            pnpm-lock.yaml
+            package.json
+            apps/web
+      - name: Setup PNPM
+        uses: pnpm/setup@v1
+        with:
+          version: 11
+          runtime: node@26
+          cache: true
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build files
+        run: pnpm build:fe
+      - name: Deploy Production to Netlify
+        run: pnpm dlx netlify-cli deploy --dir=apps/web/dist/evena/browser -p
