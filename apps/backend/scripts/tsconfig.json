@@ -1,0 +1,6 @@
+{
+  "files": ["migrate-backup.ts"],
+  "compilerOptions": {
+    "types": ["node"]
+  }
+}

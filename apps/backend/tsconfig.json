@@ -1,5 +1,6 @@
 {
   "extends": ["nitro/tsconfig"],
+  "exclude": ["./scripts"],
   "compilerOptions": {
     "paths": {
       "~/*": ["./server/*"]
