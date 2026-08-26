@@ -9,6 +9,11 @@ export const routes: Routes = [
     title: 'Happening now',
   },
   {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about.page').then((m) => m.AboutPage),
+    title: 'About',
+  },
+  {
     path: '',
     redirectTo: 'events',
     pathMatch: 'full',
