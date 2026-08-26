@@ -27,7 +27,7 @@ import {
 import type {
   EventLookup,
   FindEventsParams
-} from '../../../../../libs/sdk/evena/models';
+} from '../../models';
 
 
 

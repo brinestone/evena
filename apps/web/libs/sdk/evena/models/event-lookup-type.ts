@@ -5,10 +5,4 @@
  * OpenAPI spec version: 1.0
  */
 
-export type EventLookupType = typeof EventLookupType[keyof typeof EventLookupType];
-
-
-export const EventLookupType = {
-  open: 'open',
-  invite_only: 'invite_only',
-} as const;
+export type EventLookupType = 'open' | 'invite_only';

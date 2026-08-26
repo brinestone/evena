@@ -15,7 +15,17 @@ export default defineConfig({
     betterAuthSecret: '',
     googleClientSecret: '',
     googleClientId: '',
-    baseUrl: 'https://smattend.netlify.app',
+    baseUrl: 'https://smattend.onrender.com',
+  },
+  $development: {
+    debug: true,
+    routeRules: {
+      '/api/**': {
+        headers: {
+          'Access-Control-Allow-Origin': 'http://localhost:4200',
+        },
+      },
+    },
   },
   routeRules: {
     '/api/**': {
@@ -23,7 +33,8 @@ export default defineConfig({
       headers: {
         'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,PATCH,DELETE,PUT',
         'Access-Control-Allow-Headers': 'Content-Type,Authorization',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://smattend.onrender.com',
+        'Access-Control-Allow-Credentials': 'true',
       },
     },
   },

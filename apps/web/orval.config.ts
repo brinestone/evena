@@ -5,12 +5,14 @@ export default defineConfig({
       mode: 'tags-split',
       clean: true,
       client: 'angular',
-      target: 'src/app/sdk/evena',
+      target: './libs/sdk/evena/api',
       indexFiles: true,
       namingConvention: 'kebab-case',
       override: {
+        enumGenerationType: 'union',
         angular: {
           provideIn: false,
+          retrievalClient: 'both',
         },
       },
       schemas: {
